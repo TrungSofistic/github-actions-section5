@@ -1,4 +1,6 @@
-name: Deploy website
+#  Showing how to upload and download artifacts
+# for upload, notice "Upload artifacts", for access to artifacts, notice "Get build artifacts"
+name: Demo Upload and Download Artifacts
 on:
   push:
     branches:
