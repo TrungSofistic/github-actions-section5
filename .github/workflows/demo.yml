@@ -31,12 +31,20 @@ jobs:
         with:
           name: dist-file
           # this is where to find the build files
-          path: |
-            dist
-            package.json
+          # path: |
+          #   dist
+          #   package.json
+          path: dist
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      # getting the build artifacts
+      - name: Get build artifiacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-file
+      - name: Output files
+        run: ls
       - name: Deploy
         run: echo "Deploying..."
