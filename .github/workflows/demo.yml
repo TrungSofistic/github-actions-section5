@@ -1,6 +1,6 @@
 # Showing how to upload and download artifacts
 # for upload, notice "Upload artifacts", for access to artifacts, notice "Get build artifacts"
-
+# For Job Output, notice the build job and deploy job, and how to use the output from build job in deploy job
 name: Demo Upload and Download Artifacts
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
     # defining job outputs, script-file is the custom name
     # search for steps context value to understand further on this
     outputs:
-      script-file: ${{ steps.publish-file-custom-name.outputs.script-file }}
+      script-file: ${{ steps.publish_file_custom_name.outputs.script-file }}
     steps:
       - name: Get code
         uses: actions/checkout@v3
@@ -35,9 +35,9 @@ jobs:
       # Learning Job Output, command that find the js file and echo it
       - name: Publish JS filename
         # defining output for this step to use for Job Output
-        id: publish-file-custom-name
+        id: publish_file_custom_name
         # This is how to output the file name into script-file
-        run: find dist/assets/*.js -type f -execdir echo 'script-file={} >> $GITHUB_OUTPUT' ';'
+        run: find dist/assets/*.js -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'
       # see all the upload artifact action here: https://github.com/actions/upload-artifact
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
