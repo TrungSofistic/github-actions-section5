@@ -1,6 +1,7 @@
 # Showing how to upload and download artifacts
 # for upload, notice "Upload artifacts", for access to artifacts, notice "Get build artifacts"
 # For Job Output, notice the build job and deploy job, and how to use the output from build job in deploy job
+# See Cache Dependencies on how to cache dependencies
 name: Demo Upload and Download Artifacts
 on:
   push:
